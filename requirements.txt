@@ -7,4 +7,5 @@ click==8.1.7
 blinker==1.6.3
 joblib
 numpy
-scikit-learn
+scikit-learn==1.6.1
+
