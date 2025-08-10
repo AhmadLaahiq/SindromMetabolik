@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Sindrom Metabolik</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
+            font-family: 'Merriweather', serif;
+        }
+        h1, h2, h3, h4, h5, h6, .gradient-header, .gradient-header h1 {
+            font-family: 'Playfair Display', serif !important;
+            letter-spacing: 0.5px;
+        }
+        p, ul, ol, table, .table, .table-responsive, label, .form-label, .form-control, .form-select, .btn, .progress-bar, .alert, .card, .card-title, .card-body, .badge, .alert-info, .alert-success, .alert-danger, .alert-warning {
+            font-family: 'Merriweather', serif !important;
+        }
+        .content { background: #fff; border-radius: 18px; padding: 2.5rem; box-shadow: 0 2px 16px rgba(0,0,0,0.08); animation: fadeIn 1.2s; }
+        .gradient-header { background: #2D9CDB; color: #fff; border-radius: 14px; padding: 1.2rem 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.07); margin-bottom: 2rem; }
+        .badge-prediksi { background: #56CCF2; color: #fff; font-size: 1rem; margin-left: 0.5rem; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: none;} }
+        .icon-section { color: #27AE60; margin-right: 0.5rem; }
+        .progress { height: 1.5rem; }
+        .progress-bar { font-size: 1.1rem; color: #fff !important; font-weight: 600; text-shadow: 0 1px 2px #2D9CDB55; text-align: center; white-space: nowrap; }
+        .card-hasil { border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+        .btn-primary, .btn-success { background: #2D9CDB !important; border: none; }
+        .btn-primary:hover, .btn-success:hover { background: #56CCF2 !important; }
+        .alert-danger, .bg-danger, .badge.bg-danger { background-color: #EB5757 !important; color: #fff !important; }
+        .alert-info { background-color: #56CCF2 !important; color: #fff !important; }
+        .badge.bg-success { background-color: #27AE60 !important; color: #fff !important; }
+        .badge-prediksi { background: #56CCF2 !important; color: #fff !important; }
+        .form-label, .gradient-header h1 { color: #2D9CDB; font-weight: 600; }
+        .content { background: #F2F2F2; }
+        .form-control, .form-select {
+            background: #fff;
+            color: #222;
+            border: 2.5px solid rgba(0,0,0,0.5);
+            border-radius: 8px;
+            width: 100%;
+            min-height: 48px;
+            font-size: 1.08rem;
+            box-sizing: border-box;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: rgba(0,0,0,0.5);
+            box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.10);
+        }
+        .form-select {
+            position: relative;
+            background-image: none !important;
+            padding-right: 2.5rem !important;
+        }
+        .select-animated-arrow {
+            position: absolute;
+            right: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%) rotate(0deg);
+            pointer-events: none;
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+            font-size: 1.2rem;
+            color: rgba(0,0,0,0.5);
+        }
+        .form-select:focus + .select-animated-arrow,
+        .form-select:active + .select-animated-arrow {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        @media (max-width: 576px) {
+            .content { padding: 0.5rem; border-radius: 8px; }
+            .hero-section { padding: 0.7rem 0.3rem !important; border-radius: 8px !important; }
+            .hero-section h1 { font-size: 1.1rem !important; word-break: break-word; }
+            .hero-section p { font-size: 0.85rem !important; word-break: break-word; }
+            h5.fw-bold.mt-4.mb-2 { font-size: 1rem !important; word-break: break-word; }
+            .table-responsive { font-size: 0.92rem; }
+        }
+        .main-content { margin-top: 1.5rem; }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="container py-3 main-content">
+    <!-- Hero Section -->
+    <div class="hero-section text-center py-4 mb-4" style="background: linear-gradient(90deg, #2D9CDB 0%, #56CCF2 100%); border-radius: 18px;">
+        <h1 class="text-white fw-bold mb-2" style="font-size:2.2rem; letter-spacing:1px;">
+            <i class="fa-solid fa-magnifying-glass-chart me-2"></i>Prediksi Sindrom Metabolik
+        </h1>
+        <p class="text-white mb-0" style="font-size:1.15rem;">
+            Cek risiko sindrom metabolik Anda sekarang dan mulailah langkah sehat Anda hari ini dengan mengetahui risiko sindrom metabolik
+        </p>
+    </div>
+    <!-- Card Form Prediksi -->
+    <div class="card shadow-sm mb-4" style="border-radius: 16px;">
+      <div class="card-body">
+        <form method="post" novalidate class="needs-validation">
+            <div class="row g-4 mb-2">
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-user icon-section"></i> Nama <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-lg" name="nama" required value="{{ nama or '' }}">
+                    <div class="invalid-feedback">Nama wajib diisi.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-venus-mars icon-section"></i> Jenis Kelamin <span class="text-danger">*</span></label>
+                    <div class="position-relative">
+                        <select class="form-select form-control-lg" name="jenis_kelamin" required>
+                            <option value="">Pilih jenis kelamin</option>
+                            <option value="Male" {% if jenis_kelamin=='Male' %}selected{% endif %}>Male</option>
+                            <option value="Female" {% if jenis_kelamin=='Female' %}selected{% endif %}>Female</option>
+                        </select>
+                        <span class="select-animated-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <div class="invalid-feedback">Jenis kelamin wajib dipilih.</div>
+                </div>
+            </div>
+            <div class="row g-4 mb-2">
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-ring icon-section"></i> Status Pernikahan <span class="text-danger">*</span></label>
+                    <div class="position-relative">
+                        <select class="form-select form-control-lg" name="status" required>
+                            <option value="">Pilih status</option>
+                            <option value="Single" {% if status=='Single' %}selected{% endif %}>Single</option>
+                            <option value="Married" {% if status=='Married' %}selected{% endif %}>Married</option>
+                        </select>
+                        <span class="select-animated-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <div class="invalid-feedback">Status pernikahan wajib dipilih.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-people-group icon-section"></i> Ras <span class="text-danger">*</span></label>
+                    <div class="position-relative">
+                        <select class="form-select form-control-lg" name="ras" required>
+                            <option value="">Pilih ras</option>
+                            <option value="White" {% if ras=='White' %}selected{% endif %}>White</option>
+                            <option value="Black" {% if ras=='Black' %}selected{% endif %}>Black</option>
+                            <option value="Asian" {% if ras=='Asian' %}selected{% endif %}>Asian</option>
+                            <option value="Hispanic" {% if ras=='Hispanic' %}selected{% endif %}>Hispanic</option>
+                            <option value="Other" {% if ras=='Other' %}selected{% endif %}>Other</option>
+                        </select>
+                        <span class="select-animated-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <div class="invalid-feedback">Ras wajib dipilih.</div>
+                </div>
+            </div>
+            <div class="row g-4 mb-2">
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-hourglass-half icon-section"></i> Usia <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control form-control-lg" name="usia" min="1" max="120" required value="{{ usia|default('') }}">
+                    <div class="invalid-feedback">Usia wajib diisi.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-ruler-horizontal icon-section"></i> Lingkar Pinggang (cm) <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control form-control-lg" name="lingkar_pinggang" min="0" step="0.1" required value="{{ lingkar_pinggang|default('') }}">
+                    <div class="invalid-feedback">Lingkar pinggang wajib diisi.</div>
+                </div>
+            </div>
+            <div class="row g-4 mb-2">
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-weight-scale icon-section"></i> BMI (opsional)</label>
+                    <input type="number" class="form-control form-control-lg" name="bmi" min="0" step="0.1" value="{{ bmi|default('') }}">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-vial icon-section"></i> Albuminuria (opsional)</label>
+                    <input type="number" class="form-control form-control-lg" name="albuminuria" min="0" step="0.1" value="{{ albuminuria|default('') }}">
+                </div>
+            </div>
+            <div class="row g-4 mb-2">
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-flask-vial icon-section"></i> Urine Albumin-Creatinine Ratio (opsional)</label>
+                    <input type="number" class="form-control form-control-lg" name="acr" min="0" step="0.1" value="{{ acr|default('') }}">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-droplet icon-section"></i> Asam Urat (opsional)</label>
+                    <input type="number" class="form-control form-control-lg" name="asam_urat" min="0" step="0.1" value="{{ asam_urat|default('') }}">
+                </div>
+            </div>
+            <div class="row g-4 mb-2">
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-syringe icon-section"></i> Glukosa Darah <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control form-control-lg" name="glukosa" min="0" step="0.1" required value="{{ glukosa|default('') }}">
+                    <div class="invalid-feedback">Glukosa darah wajib diisi.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-vials icon-section"></i> HDL <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control form-control-lg" name="hdl" min="0" step="0.1" required value="{{ hdl|default('') }}">
+                    <div class="invalid-feedback">HDL wajib diisi.</div>
+                </div>
+            </div>
+            <div class="row g-4 mb-2">
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-droplet-slash icon-section"></i> Trigliserida <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control form-control-lg" name="trigliserida" min="0" step="0.1" required value="{{ trigliserida|default('') }}">
+                    <div class="invalid-feedback">Trigliserida wajib diisi.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-heart-pulse icon-section"></i> Tekanan Darah Sistolik (mmHg) <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control form-control-lg" name="tekanan_sistolik" min="0" required value="{{ tekanan_sistolik|default('') }}">
+                    <div class="invalid-feedback">Tekanan darah sistolik wajib diisi.</div>
+                </div>
+            </div>
+            <div class="row g-4 mb-4">
+                <div class="col-12 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-heart-circle-bolt icon-section"></i> Tekanan Darah Diastolik (mmHg) <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control form-control-lg" name="tekanan_diastolik" min="0" required value="{{ tekanan_diastolik|default('') }}">
+                    <div class="invalid-feedback">Tekanan darah diastolik wajib diisi.</div>
+                </div>
+            </div>
+            <div class="mt-4 d-flex gap-2 justify-content-start">
+                <button type="submit" class="btn btn-success btn-lg px-4"><i class="fa-solid fa-magnifying-glass-chart me-2"></i>Prediksi</button>
+                <button type="button" class="btn btn-danger btn-lg px-4" id="resetFormBtn" style="background:#e53935; border-color:#e53935;"><i class="fa-solid fa-eraser me-2"></i>Hapus Field</button>
+                <a href="/artikel" class="btn btn-primary btn-lg px-4"><i class="fa-solid fa-book-open me-2"></i>Artikel</a>
+            </div>
+        </form>
+        {% if hasil %}
+        <hr class="my-4">
+        <div class="card card-hasil mb-4 animate__animated animate__fadeInUp">
+            <div class="card-body">
+                <h4 class="card-title mb-3"><i class="fa-solid fa-heart-pulse icon-section" style="color:#27AE60;"></i>Kemungkinan mengalami sindrom metabolik:
+                    <span class="badge {{ 'bg-danger' if hasil=='POSITIF' else 'bg-success' }} ms-2" style="font-size:1.1rem;">{{ hasil }}</span>
+                </h4>
+                <div class="mb-3">
+                    <label class="form-label">Probabilitas:</label>
+                    <div class="progress">
+                        <div class="progress-bar {{ 'bg-danger' if hasil=='POSITIF' else 'bg-success' }}"
+                             role="progressbar"
+                             style="width:0%;"
+                             data-probabilitas="{{ probabilitas|replace('%','') }}"
+                             aria-valuenow="{{ probabilitas|replace('%','') }}"
+                             aria-valuemin="0"
+                             aria-valuemax="100">
+                            {{ probabilitas }}
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <h5><i class="fa-solid fa-clipboard-list icon-section" style="color:#56CCF2;"></i>Evaluasi Klinis</h5>
+                    <div class="alert alert-info">Pasien hanya memenuhi {{ kriteria }} dari 5 kriteria.</div>
+                    {% if terpenuhi %}
+                        <ul>
+                        {% for t in terpenuhi %}
+                            <li>{{ t }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Tidak ada kriteria yang terpenuhi.</p>
+                    {% endif %}
+                </div>
+                {% if hasil == 'POSITIF' %}
+                    <div class="alert alert-warning"><i class="fa-solid fa-triangle-exclamation me-2" style="color:#EB5757;"></i>{{ nama if nama else 'Pasien' }}, konsultasikan kondisi Anda dengan dokter untuk mendapatkan penanganan terbaik sejak dini.</div>
+                {% else %}
+                    <div class="alert alert-success"><i class="fa-solid fa-thumbs-up me-2"></i>{{ nama if nama else 'Pasien' }}, jangan menunggu sakit untuk mulai hidup sehat. Mulailah dari langkah kecil hari ini.</div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% if model_prediksi is not none %}
+        <div class="card card-hasil mb-4 animate__animated animate__fadeInUp">
+            <div class="card-body">
+                <h4 class="card-title mb-3"><i class="fa-solid fa-robot icon-section" style="color:#2D9CDB;"></i>Prediksi Model Machine Learning:</h4>
+                <p class="mb-2">Hasil model: <span class="badge {{ 'bg-danger' if model_prediksi==1 else 'bg-success' }} ms-2" style="font-size:1.1rem;">{{ 'POSITIF' if model_prediksi==1 else 'NEGATIF' }}</span></p>
+                {% if model_proba is not none %}
+                <div class="mb-2">Probabilitas model: <span class="fw-bold">{{ model_proba_percent }}%</span></div>
+                <div class="progress mb-2">
+                    <div class="progress-bar {{ 'bg-danger' if model_prediksi==1 else 'bg-success' }}" role="progressbar" style="width: {{ model_proba_percent }}%;" aria-valuenow="{{ model_proba_percent }}" aria-valuemin="0" aria-valuemax="100">{{ model_proba_percent }}%</div>
+                </div>
+                {% endif %}
+                <div class="alert alert-info mt-2">Prediksi ini menggunakan model machine learning yang telah dilatih pada data medis.</div>
+            </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Card Atribut Dataset -->
+    <div class="card shadow-sm mb-4" style="border-radius: 16px;">
+      <div class="card-body">
+        <h5 class="fw-bold mb-3" style="color:#2D9CDB;">Kolom Data</h5>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-middle mb-0" style="background:#fff; border-radius:12px; overflow:hidden;">
+            <thead class="table-primary text-center align-middle">
+              <tr>
+                <th style="width:4%;">No</th>
+                <th style="width:18%;">Parameter</th>
+                <th>Deskripsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="text-center">1</td><td><em>seqn</em></td><td>Nomor identifikasi untuk tiap entri.</td></tr>
+              <tr><td class="text-center">2</td><td><em>age</em></td><td>Usia pasien dalam bentuk numerik.</td></tr>
+              <tr><td class="text-center">3</td><td><em>Sex</em></td><td>Jenis kelamin pasien (kategori: Male/Female).</td></tr>
+              <tr><td class="text-center">4</td><td><em>Marital</em></td><td>Status pernikahan (kategori: Married, Single, dll).</td></tr>
+              <tr><td class="text-center">5</td><td><em>Income</em></td><td>Pendapatan pasien (numerik).</td></tr>
+              <tr><td class="text-center">6</td><td><em>Race</em></td><td>Etnis pasien (kategori: White, Black, Asian, dll).</td></tr>
+              <tr><td class="text-center">7</td><td><em>WaistCirc</em></td><td>Lingkar pinggang pasien dalam cm (numerik).</td></tr>
+              <tr><td class="text-center">8</td><td><em>BMI</em></td><td>Indeks massa tubuh pasien (numerik).</td></tr>
+              <tr><td class="text-center">9</td><td><em>Albuminuria</em></td><td>Indikator albuminuria (0 = tidak, 1 = ya).</td></tr>
+              <tr><td class="text-center">10</td><td><em>UAlbCr</em></td><td>Rasio urin albumin/kreatinin (numerik).</td></tr>
+              <tr><td class="text-center">11</td><td><em>UricAcid</em></td><td>Kadar asam urat dalam darah (numerik).</td></tr>
+              <tr><td class="text-center">12</td><td><em>BloodGlucose</em></td><td>Kadar gula darah (numerik).</td></tr>
+              <tr><td class="text-center">13</td><td><em>HDL</em></td><td>Kadar kolesterol HDL (numerik).</td></tr>
+              <tr><td class="text-center">14</td><td><em>Triglycerides</em></td><td>Kadar trigliserida (numerik).</td></tr>
+              <tr><td class="text-center">15</td><td><em>MetabolicSyndrome</em></td><td>Label target: 1 jika pasien menderita sindrom metabolik, 0 jika tidak.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var bar = document.querySelector('.progress-bar[data-probabilitas]');
+        if (bar) {
+            var prob = bar.getAttribute('data-probabilitas');
+            if (prob && !isNaN(prob)) {
+                bar.style.width = prob + '%';
+            }
+        }
+        // Bootstrap form validation
+        var forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+        // Reset form fields
+        var resetBtn = document.getElementById('resetFormBtn');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function() {
+                window.location.href = '/prediksi';
+            });
+        }
+    });
+    </script>
+</body>
+</html> 

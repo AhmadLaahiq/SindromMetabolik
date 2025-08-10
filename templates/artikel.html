@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi Sindrom Metabolik</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
+            font-family: 'Merriweather', serif;
+        }
+        .content {
+            background: rgba(255,255,255,0.7);
+            border-radius: 22px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 8px 40px rgba(45,156,219,0.13);
+            animation: fadeIn 1.2s;
+            backdrop-filter: blur(8px);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1, h2, h3, h4, h5, h6, .gradient-header, .gradient-header h1 {
+            font-family: 'Playfair Display', serif !important;
+            letter-spacing: 0.5px;
+        }
+        p, ul, ol, table, .table, .table-wider {
+            font-family: 'Merriweather', serif !important;
+        }
+        @media (max-width: 1000px) {
+            .content { max-width: 100%; }
+        }
+        .table-wider {
+            margin-left: -1.5rem;
+            margin-right: -1.5rem;
+            width: calc(100% + 3rem);
+            max-width: none;
+            font-size: 1.08rem;
+        }
+        .table-wider table {
+            width: 100%;
+        }
+        .table-wider th, .table-wider td {
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+            word-break: break-word;
+        }
+        .gradient-header {
+            background: linear-gradient(90deg, #2D9CDB 0%, #56CCF2 100%);
+            color: #fff;
+            border-radius: 16px;
+            padding: 1.5rem 2.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            margin-bottom: 2.2rem;
+            display: flex;
+            align-items: center;
+        }
+        .gradient-header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+        .badge-edukasi {
+            background: #56CCF2;
+            color: #fff;
+            font-size: 1rem;
+            margin-left: 0.7rem;
+            border-radius: 1rem;
+            padding: 0.3rem 0.9rem;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: none;} }
+        .icon-section {
+            color: #2D9CDB;
+            margin-right: 0.7rem;
+            font-size: 1.3rem;
+        }
+        .main-img {
+            display: block;
+            margin: 0 auto;
+            max-width: 600px;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .main-img:hover {
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 8px 32px rgba(45,156,219,0.18);
+            z-index: 2;
+        }
+        section h4 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #2D9CDB;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #56CCF2;
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+        p, ul li {
+            font-size: 1.13rem;
+            color: #222;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        ul li strong, p strong {
+            color: #2D9CDB;
+            font-weight: 700;
+        }
+        section {
+            margin-bottom: 2.7rem;
+        }
+        ul {
+            padding-left: 1.5rem;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        ul li:before {
+            content: '';
+        }
+        .alert-info {
+            background: #56CCF2;
+            color: #fff;
+            border: none;
+            font-size: 1.08rem;
+        }
+        .alert-info a {
+            color: #fff;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .alert-info a:hover {
+            color: #2D9CDB;
+        }
+        @media (max-width: 600px) {
+            .content { padding: 1.2rem 0.5rem; }
+            .gradient-header { padding: 1rem 1rem; }
+            .main-img { max-width: 100%; }
+        }
+        .btn-prediksi {
+            background: #2196f3 !important;
+            color: #fff !important;
+            font-weight: 600;
+            border-radius: 2rem;
+            font-size: 1.15rem;
+            text-decoration: none !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            border: 2px solid #1976d2;
+            transition: background 0.2s, border 0.2s;
+        }
+        .btn-prediksi:hover {
+            background: #1976d2 !important;
+            color: #fff !important;
+            border-color: #1565c0 !important;
+        }
+        .vignette-outer {
+            position: relative;
+            display: inline-block;
+            border-radius: 22px;
+            overflow: visible;
+        }
+        .vignette-outer::before {
+            content: "";
+            position: absolute;
+            top: -30px; left: -30px; right: -30px; bottom: -30px;
+            border-radius: 32px;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0) 70%);
+            filter: blur(8px);
+        }
+        .vignette-outer img {
+            position: relative;
+            z-index: 2;
+        }
+        .main-content { margin-top: 1.5rem; }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+<div class="container py-3 main-content">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="content">
+                <div class="gradient-header mb-4">
+                    <i class="fa-solid fa-book-medical fa-2x me-3"></i>
+                    <h1 class="mb-0">Sindrom Metabolik</h1>
+                </div>
+                <!-- Gambar utama responsif -->
+                <div class="vignette-outer mb-4 d-flex justify-content-center">
+                    <img src="/static/img/SM.jpg" alt="Infografis Penyakit Metabolik" class="main-img img-fluid">
+                </div>
+                <small class="d-block text-center mb-3" style="color:#888; font-size:0.98rem;">
+                    Sumber gambar: <a href="https://mediaindonesia.com/humaniora/319452/waspadai-sindrom-metabolik" target="_blank" rel="noopener" style="color:#2D9CDB; text-decoration:underline;">mediaindonesia.com</a>
+                </small>
+                <section class="mb-4">
+                    <h4><i class="fa-solid fa-circle-info icon-section"></i>Apa yang dimaksud dengan Sindrom metabolik?</h4>
+                    <p>Metabolic syndrome atau sindrom metabolik adalah sekumpulan kondisi yang dapat meningkatkan risiko penyakit jantung, stroke, dan diabetes pada seseorang. Contohnya kadar gula darah dan tekanan darah tinggi, kenaikan kadar kolesterol, serta lemak berlebihan di sekitar pinggang. Suatu penyakit dikatakan sindrom metabolik bila terdapat setidaknya tiga dari kondisi di atas.</p>
+                    <p>Apabila hanya mengalami salah satu dari kondisi tersebut, maka belum bisa dikatakan bahwa Anda terkena sindrom metabolik. Namun tetap saja, salah satu dari kondisi itu dapat meningkatkan risiko penyakit serius. Sindrom metabolik sering dialami oleh orang-orang berusia lanjut. Meski begitu, baik anak-anak ataupun orang berusia muda tetap perlu mewaspadai sindrom metabolik.</p>
+                </section>
+                <section class="mb-4">
+                    <h4><i class="fa-solid fa-list-check icon-section"></i>Kriteria Diagnosis</h4>
+                    <p>Sindrom metabolik adalah kumpulan dari beberapa kondisi medis yang terjadi secara bersamaan dan secara signifikan meningkatkan risiko seseorang terkena penyakit jantung, stroke, dan diabetes tipe 2. Menurut National Heart, Lung, and Blood Institute (NHLBI), seseorang dinyatakan mengalami sindrom metabolik jika memiliki setidaknya tiga dari lima faktor risiko utama:</p>
+                    <ul>
+                        <li>Tekanan darah tinggi (≥130/85 mmHg)</li>
+                        <li>Kadar gula darah puasa tinggi (≥100 mg/dL)</li>
+                        <li>Kadar trigliserida tinggi (≥150 mg/dL)</li>
+                        <li>Kadar kolesterol HDL rendah (<40 mg/dL untuk pria, <50 mg/dL untuk wanita)</li>
+                        <li>Lingkar pinggang besar (≥90 cm untuk pria, ≥80 cm untuk wanita di Asia)</li>
+                    </ul>
+                </section>
+                <section class="mb-4">
+                    <h4><i class="fa-solid fa-dna icon-section"></i>Penyebab</h4>
+                    <p>Hingga kini belum diketahui secara pasti penyebab sindrom metabolik. Tetapi, diketahui bahwa sindrom ini erat kaitannya dengan kondisi resistensi insulin. Insulin adalah hormon yang diproduksi oleh organ pankreas dan fungsinya membantu tubuh memetabolisme gula dari makanan.</p>
+                    <p>Resistensi insulin membuat sel-sel dalam tubuh tidak merespon secara normal terhadap insulin, sehingga glukosa tidak dapat termetabolisme dengan baik dan menyebabkan kadar gula dalam darah meningkat. Hal ini dapat memicu penyakit diabetes.</p>
+                    <p>Selain resistensi insulin, sindrom metabolik juga berkaitan dengan kondisi seperti kelebihan berat badan (obesitas) serta kurangnya aktivitas fisik. Adapun beberapa gaya hidup kurang sehat yang berpotensi memicu sindrom metabolik adalah sebagai berikut:</p>
+                    <ul>
+                        <li>Jarang berolahraga</li>
+                        <li>Stres berkepanjangan</li>
+                        <li>Merokok atau sering terpapar asap rokok</li>
+                        <li>Terlalu banyak mengonsumsi makanan rendah serat serta tinggi karbohidrat dan lemak</li>
+                    </ul>
+                    <p>Sindrom metabolik tidak disebabkan oleh satu faktor tunggal, melainkan merupakan hasil dari kombinasi beberapa penyebab utama:</p>
+                    <ul>
+                        <li>Obesitas sentral (lemak di perut): Indikator utama resistensi insulin</li>
+                        <li>Resistensi insulin: Ketika insulin tidak dapat bekerja secara efektif</li>
+                        <li>Gaya hidup tidak aktif: Kurangnya aktivitas fisik</li>
+                        <li>Pola makan buruk: Konsumsi berlebih gula, garam, lemak jenuh</li>
+                        <li>Faktor genetik dan usia: Riwayat keluarga dan usia di atas 45 tahun</li>
+                    </ul>
+                </section>
+                <section class="mb-4">
+                    <h4><i class="fa-solid fa-triangle-exclamation icon-section"></i>Dampak</h4>
+                    <p>Jika tidak ditangani, sindrom metabolik bisa menyebabkan komplikasi serius:</p>
+                    <ul>
+                        <li>Penyakit jantung koroner dan stroke</li>
+                        <li>Diabetes tipe 2</li>
+                        <li>Kerusakan organ lainnya (ginjal, hati berlemak non-alkohol)</li>
+                    </ul>
+                    <p>Beberapa faktor tersebut dapat meningkatkan risiko Anda terkena sindrom metabolik. Meski begitu, sindrom ini dapat menyerang siapa saja, tak terkecuali bagi Anda yang tidak memiliki salah satu dari risiko-risiko di atas.</p>
+                </section>
+                <section class="mb-4">
+                    <h4><i class="fa-solid fa-stethoscope icon-section"></i>Gejala</h4>
+                    <p>Seperti yang sudah dibahas sebelumnya bahwa sindrom metabolik adalah sekumpulan kondisi yang berbeda-beda tetapi dalam kurun waktu bersamaan. Oleh sebab itu, gejala sindrom metabolik bergantung pada kondisi yang dialami.</p>
+                    <p>Dalam artian, jika Anda mengalami salah satu kondisi seperti gula darah tinggi, maka Anda akan merasakan beberapa gejala layaknya penderita diabetes. Di antaranya yaitu sering buang air kecil, mudah merasa lapar, serta sering merasa lemas.</p>
+                    <p>Perlu Anda ketahui bahwa umumnya gejala kolesterol tinggi, tekanan darah tinggi, atau gula darah tinggi muncul secara perlahan, sehingga sulit untuk dideteksi dengan dini. Oleh karenanya, Anda disarankan untuk rutin melakukan pemeriksaan tes darah atau pengecekan tekanan darah.</p>
+                </section>
+                <section class="mb-4">
+                    <h4><i class="fa-solid fa-shield-heart icon-section"></i>Pencegahan</h4>
+                    <p>Beberapa langkah pencegahan yang dapat dilakukan:</p>
+                    <ul>
+                        <li>Pola makan seimbang (tinggi serat, rendah lemak jenuh)</li>
+                        <li>Rutin berolahraga (30 menit setiap hari)</li>
+                        <li>Berhenti merokok dan hindari alkohol</li>
+                        <li>Pantau berat badan dan lingkar pinggang</li>
+                        <li>Cek kesehatan secara rutin</li>
+                    </ul>
+                </section>
+                <section class="mb-4">
+                    <h4><i class="fa-solid fa-hand-holding-medical icon-section"></i>Penanganan</h4>
+                    <p>Pengobatan sindrom metabolik disesuaikan dengan kondisi yang dikeluhkan pasien. Apabila pasien mengalami peningkatan kadar kolesterol, maka dokter mungkin akan meresepkan obat penurun kolesterol seperti statin.</p>
+                    <p>Jenis obat tersebut biasanya diberikan kepada pasien dengan riwayat penyakit diabetes, penyakit jantung, atau memiliki kadar kolesterol baik (HDL) yang rendah. Dokter juga akan memberikan obat yang dapat menurunkan risiko serangan jantung, penggumpalan darah, serta tekanan darah tinggi.</p>
+                    <p>Adapun beberapa pengobatan di rumah yang dapat Anda lakukan untuk mengatasi sindrom metabolik adalah sebagai berikut:</p>
+                    <ul>
+                        <li>Membatasi konsumsi garam.</li>
+                        <li>Menjaga berat badan ideal dengan melakukan diet sehat.</li>
+                        <li>Rutin berolahraga ringan setiap hari, seperti jalan kaki. Lakukan setidaknya 30 menit per hari.</li>
+                        <li>Memulai gaya hidup sehat dengan mengubah pola makan untuk menurunkan kolesterol.</li>
+                        <li>Menghindari makanan yang mengandung lemak jenuh.</li>
+                    </ul>
+                    <p>Jika sudah terdiagnosis, penanganan meliputi:</p>
+                    <ul>
+                        <li>Perubahan gaya hidup total</li>
+                        <li>Pengobatan medis (sesuai resep dokter)</li>
+                        <li>Pendampingan nutrisi dan olahraga</li>
+                        <li>Manajemen stres (yoga, meditasi, relaksasi)</li>
+                    </ul>
+                </section>
+                <div class="alert alert-info mt-4" style="background:linear-gradient(90deg,#2D9CDB 0%,#56CCF2 100%); border:none;">
+                    <div class="text-center mb-3" style="margin-bottom:2rem !important;">
+                        <b style="font-size:1.25rem; color:#fff; letter-spacing:0.5px;">Referensi:</b>
+                    </div>
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <a href="https://www.siloamhospitals.com/informasi-siloam/artikel/apa-itu-sindrom-metabolik" target="_blank" class="text-decoration-none">
+                                <div class="card h-100 text-center shadow-sm" style="border-radius:18px; border:1.5px solid #e0eafc; background:#fff;">
+                                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                        <div style="background:#f7fafd; border-radius:12px; padding:1.2rem 0.5rem; margin-bottom:1rem;">
+                                            <img src="/static/img/sh.png" alt="Siloam Hospitals Logo" style="height:56px; width:auto; object-fit:contain;">
+                                        </div>
+                                        <h5 class="fw-bold mb-1" style="color:#1976d2;">Siloam Hospitals</h5>
+                                        <div style="font-size:1.05rem; color:#1976d2;">Siloam Hospitals</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <a href="https://www.nhlbi.nih.gov/health/metabolic-syndrome" target="_blank" class="text-decoration-none">
+                                <div class="card h-100 text-center shadow-sm" style="border-radius:18px; border:1.5px solid #e0eafc; background:#fff;">
+                                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                        <div style="background:#f7fafd; border-radius:12px; padding:1.2rem 0.5rem; margin-bottom:1rem;">
+                                            <img src="/static/img/nhlbi.png" alt="NHLBI Logo" style="height:56px; width:auto; object-fit:contain;">
+                                        </div>
+                                        <h5 class="fw-bold mb-1" style="color:#1976d2;">NHLBI</h5>
+                                        <div style="font-size:1.05rem; color:#1976d2;">National Heart, Lung, and Blood Institute</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <a href="https://www.who.int/news-room/fact-sheets/detail/noncommunicable-diseases" target="_blank" class="text-decoration-none">
+                                <div class="card h-100 text-center shadow-sm" style="border-radius:18px; border:1.5px solid #e0eafc; background:#fff;">
+                                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                        <div style="background:#f7fafd; border-radius:12px; padding:1.2rem 0.5rem; margin-bottom:1rem;">
+                                            <img src="/static/img/who.png" alt="WHO Logo" style="height:56px; width:auto; object-fit:contain;">
+                                        </div>
+                                        <h5 class="fw-bold mb-1" style="color:#1976d2;">WHO</h5>
+                                        <div style="font-size:1.05rem; color:#1976d2;">World Health Organization</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <a href="https://www.heart.org/en/health-topics/metabolic-syndrome" target="_blank" class="text-decoration-none">
+                                <div class="card h-100 text-center shadow-sm" style="border-radius:18px; border:1.5px solid #e0eafc; background:#fff;">
+                                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                        <div style="background:#f7fafd; border-radius:12px; padding:1.2rem 0.5rem; margin-bottom:1rem;">
+                                            <img src="/static/img/heart.png" alt="Heart.org Logo" style="height:56px; width:auto; object-fit:contain;">
+                                        </div>
+                                        <h5 class="fw-bold mb-1" style="color:#1976d2;">Heart.org</h5>
+                                        <div style="font-size:1.05rem; color:#1976d2;">American Heart Association</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <div class="alert alert-info text-center p-4" style="border-radius: 12px;">
+                        <h4 class="text-center" style="font-weight:700; font-size:1.3rem; color:#fff;">Ingin tahu risiko Sindrom Metabolik pada diri Anda?</h4>
+                        <p class="mb-4 text-center" style="font-size:1.08rem; color:#222;">Jangan tunda, cek kesehatan Anda sekarang untuk mencegah risiko penyakit serius!</p>
+                        <a href="/prediksi" class="btn btn-lg btn-prediksi">
+                            <i class="fa-solid fa-magnifying-glass-chart me-2"></i>Prediksi Sindrom Metabolik
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
